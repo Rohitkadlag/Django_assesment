@@ -1,2 +1,2 @@
 # Django_assesment
-userauthapp for patient and doctor
+simple hardcoded app for doctor and patient
