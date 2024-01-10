@@ -1,0 +1,30 @@
+<!-- user_auth_app/templates/user_auth_app/signup_doctor.html -->
+
+{% extends 'user_auth_app/base.html' %}
+
+{% block title %}Doctor Signup - User Authentication App{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">Doctor Signup</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" action="{% url 'user_auth_app:signup_doctor' %}">
+                    {% csrf_token %}
+                    
+                    <!-- Bootstrap-styled form using form.as_p -->
+                    <div class="form-group">
+                        {{ form.as_p }}
+                    </div>
+                    
+                    <!-- You can add additional Bootstrap styling or customize the form as needed -->
+
+                    <button type="submit" class="btn btn-primary">Signup</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,23 @@
+<!-- dashboard_app/templates/dashboard_app/patient_dashboard.html -->
+
+{% extends 'user_auth_app/base.html' %}
+
+{% block title %}Patient Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the Patient Dashboard, {{ patient_profile.user.first_name }} {{ patient_profile.user.last_name }}!</h1>
+
+    <h2>Profile Details</h2>
+    <p>Health Condition: {{ patient_profile.health_condition }}</p>
+    <p>Address Line 1: {{ patient_profile.address_line1 }}</p>
+    <p>City: {{ patient_profile.city }}</p>
+    <p>State: {{ patient_profile.state }}</p>
+    <p>Pincode: {{ patient_profile.pincode }}</p>
+    <!-- Add other patient-specific details as needed -->
+
+    <!-- Logout Button -->
+    <form method="post" action="{% url 'user_auth_app:user_logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+{% endblock %}

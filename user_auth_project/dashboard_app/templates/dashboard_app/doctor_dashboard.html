@@ -1,0 +1,23 @@
+<!-- dashboard_app/templates/dashboard_app/doctor_dashboard.html -->
+
+{% extends 'user_auth_app/base.html' %}
+
+{% block title %}Doctor Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the Doctor Dashboard, {{ doctor_profile.user.first_name }} {{ doctor_profile.user.last_name }}!</h1>
+
+    <h2>Profile Details</h2>
+    <p>Speciality: {{ doctor_profile.speciality }}</p>
+    <p>Address Line 1: {{ doctor_profile.address_line1 }}</p>
+    <p>City: {{ doctor_profile.city }}</p>
+    <p>State: {{ doctor_profile.state }}</p>
+    <p>Pincode: {{ doctor_profile.pincode }}</p>
+    <!-- Add other doctor-specific details as needed -->
+
+    <!-- Logout Button -->
+    <form method="post" action="{% url 'user_auth_app:user_logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+{% endblock %}
